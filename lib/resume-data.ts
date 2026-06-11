@@ -116,7 +116,7 @@ export const experience: ExperienceItem[] = [
     company: "GEKO S.p.A",
     context: "Energy & Ambient",
     location: "Naples, Italy",
-    period: "Jul 2025 – Present",
+    period: "Jul 2025 – Dec 2025",
     highlights: [
       "Developed a production-ready time series forecasting pipeline using Python, Pandas, Scikit-learn, and XGBoost, predicting hourly electricity consumption across Italian zones with improved accuracy through Optuna hyperparameter tuning and temporal cross-validation.",
       "Implemented unsupervised clustering (K-Means, DTW, HAC) on zone-wise consumption and weather patterns to identify region-specific behaviours, enabling cluster-based model training that improved RMSE and R² performance by over 15% compared to baseline models.",
@@ -139,7 +139,7 @@ export const education: EducationItem[] = [
   {
     degree: "Master's in Data Science",
     institution: "University of Napoli Federico II, Italy",
-    period: "2023 – 2025",
+    period: "2023 – 2026",
   },
   {
     degree: "Bachelor of Computer Application",
