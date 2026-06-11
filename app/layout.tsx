@@ -21,9 +21,17 @@ const mono = IBM_Plex_Mono({
   weight: ["400", "500"],
 });
 
-/** Canonical site URL — override via NEXT_PUBLIC_SITE_URL on Vercel. */
+/**
+ * Canonical site URL. Resolution order:
+ * 1. NEXT_PUBLIC_SITE_URL (set this once you have a custom domain)
+ * 2. Vercel's production URL (auto-injected on every deploy)
+ * 3. localhost for dev
+ */
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://fauzan-ejaz.runit.in";
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
 
 const TITLE = `${profile.name} — ${profile.title} | Machine Learning & MLOps`;
 const DESCRIPTION = `${profile.name} is a ${profile.title} in ${profile.location}, specialising in time-series forecasting, machine learning, NLP and MLOps. Python · SQL · AWS · XGBoost · BERT · YOLOv8.`;
@@ -76,7 +84,7 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: TITLE,
     description: DESCRIPTION,
     images: ["/fauzan-ejaz.jpg"],
