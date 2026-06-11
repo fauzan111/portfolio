@@ -7,6 +7,7 @@ const nav = [
   { label: "projects", href: "#projects" },
   { label: "education", href: "#education" },
   { label: "contact", href: "#contact" },
+  { label: "visitors", href: "#visitors" },
 ];
 
 export default function Header() {

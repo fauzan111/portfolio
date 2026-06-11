@@ -42,6 +42,23 @@ npm run build
 npm run start
 ```
 
+## Visitor analytics
+
+The `/api/visits` route counts visits per country (geo from Vercel's
+`x-vercel-ip-country` header) and renders them on the world map in the
+**Visitor Analytics** section.
+
+- **Local dev:** uses an in-memory store (resets on restart; visits count as IN).
+- **Production:** add the free **Upstash Redis** integration from the
+  [Vercel Marketplace](https://vercel.com/marketplace/upstash) to your project.
+  Keep the default env-var prefix (`KV`) when it asks — the code reads
+  `KV_REST_API_URL`/`KV_REST_API_TOKEN` as well as the classic
+  `UPSTASH_REDIS_REST_URL`/`UPSTASH_REDIS_REST_TOKEN`, so either works. Without it, counts reset whenever
+  the serverless function cold-starts.
+
+Also set `NEXT_PUBLIC_SITE_URL` to your deployed URL for correct
+canonical/OG/sitemap links.
+
 ## Deploy to Vercel
 
 1. Push this folder to a GitHub repository.
