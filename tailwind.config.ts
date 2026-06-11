@@ -8,12 +8,23 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#0b1020",
-        surface: "#121a2f",
-        accent: "#38bdf8",
+        coal: "#0A0505",
+        char: "#120906",
+        surface: "#170C07",
+        ember: "#FF3D17",
+        flame: "#FF7A18",
+        gold: "#FFB347",
+        ash: "#B8A89E",
+        smoke: "#79655B",
       },
       fontFamily: {
+        display: ["var(--font-display)", "sans-serif"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "monospace"],
+      },
+      backgroundImage: {
+        "ember-gradient":
+          "linear-gradient(95deg, #FF7A18 0%, #FF3D17 45%, #FFB347 100%)",
       },
     },
   },

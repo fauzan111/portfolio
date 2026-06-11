@@ -1,52 +1,60 @@
-import Section from "./Section";
+import { Parallax, Reveal } from "./motion";
 import { profile } from "@/lib/resume-data";
 
 export default function Contact() {
   return (
-    <Section id="contact" title="Contact">
-      <div className="rounded-lg border border-white/10 bg-surface p-8">
-        <p className="text-slate-300">
-          Feel free to reach out for collaborations, roles, or just a chat about
-          data science.
-        </p>
-        <dl className="mt-6 space-y-3 text-sm">
-          <div className="flex flex-wrap gap-2">
-            <dt className="w-24 font-semibold text-slate-400">Email</dt>
-            <dd>
+    <section
+      id="contact"
+      className="relative overflow-hidden px-6 py-32 sm:py-44"
+    >
+      <Parallax speed={0.3} className="absolute inset-0">
+        <div className="glow-orb absolute left-1/2 top-1/2 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 bg-ember/20" />
+      </Parallax>
+
+      <div className="relative mx-auto max-w-5xl text-center">
+        <Reveal>
+          <p className="font-mono text-sm tracking-[0.3em] text-flame">
+            [06] — model.predict(next_role)
+          </p>
+        </Reveal>
+
+        <Reveal delay={120}>
+          <h2 className="mt-8 font-display text-4xl font-black uppercase leading-tight text-white sm:text-6xl lg:text-7xl">
+            Let&apos;s build
+            <br />
+            <span className="text-ember-flow">something smart</span>
+          </h2>
+        </Reveal>
+
+        <Reveal delay={240}>
+          <a
+            href={`mailto:${profile.email}`}
+            className="mt-12 inline-block rounded-full bg-ember-gradient px-10 py-4 font-mono text-base font-medium text-coal transition-transform duration-300 hover:scale-105 sm:text-lg"
+          >
+            {profile.email}
+          </a>
+        </Reveal>
+
+        <Reveal delay={360}>
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 font-mono text-sm text-smoke">
+            {profile.phones.map((phone) => (
+              <span key={phone}>{phone}</span>
+            ))}
+            <span>{profile.location}</span>
+            {profile.links.map((link) => (
               <a
-                href={`mailto:${profile.email}`}
-                className="text-accent hover:underline"
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-flame underline-offset-4 transition-colors hover:text-ember hover:underline"
               >
-                {profile.email}
+                {link.label}
               </a>
-            </dd>
+            ))}
           </div>
-          <div className="flex flex-wrap gap-2">
-            <dt className="w-24 font-semibold text-slate-400">Phone</dt>
-            <dd className="text-slate-300">{profile.phones.join(" · ")}</dd>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <dt className="w-24 font-semibold text-slate-400">Location</dt>
-            <dd className="text-slate-300">{profile.location}</dd>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <dt className="w-24 font-semibold text-slate-400">Links</dt>
-            <dd className="flex flex-wrap gap-3">
-              {profile.links.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-accent hover:underline"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </dd>
-          </div>
-        </dl>
+        </Reveal>
       </div>
-    </Section>
+    </section>
   );
 }

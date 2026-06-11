@@ -1,22 +1,54 @@
 import Section from "./Section";
+import { Reveal } from "./motion";
 import { profile, languages } from "@/lib/resume-data";
+
+/** CEFR level → 0-1 scale, so languages render as a tiny bar chart. */
+const CEFR: Record<string, number> = {
+  A1: 1 / 6,
+  A2: 2 / 6,
+  B1: 3 / 6,
+  B2: 4 / 6,
+  C1: 5 / 6,
+  C2: 1,
+};
 
 export default function About() {
   return (
-    <Section id="about" title="About">
-      <p className="leading-relaxed text-slate-300">{profile.objective}</p>
+    <Section id="about" index="01" title="About">
+      <div className="grid gap-14 lg:grid-cols-5">
+        <Reveal className="lg:col-span-3">
+          <p className="text-xl font-light leading-relaxed text-ash sm:text-2xl">
+            {profile.objective}
+          </p>
+          <div className="mt-8 flex flex-wrap gap-x-8 gap-y-2 font-mono text-xs text-smoke">
+            <span>📍 {profile.location}</span>
+            {profile.phones.map((phone) => (
+              <span key={phone}>{phone}</span>
+            ))}
+          </div>
+        </Reveal>
 
-      <h3 className="mb-3 mt-8 text-lg font-semibold text-white">Languages</h3>
-      <div className="flex flex-wrap gap-3">
-        {languages.map((lang) => (
-          <span
-            key={lang.name}
-            className="rounded-md border border-white/10 bg-surface px-3 py-1.5 text-sm text-slate-300"
-          >
-            {lang.name}{" "}
-            <span className="font-semibold text-accent">{lang.level}</span>
-          </span>
-        ))}
+        <Reveal delay={150} className="lg:col-span-2">
+          <h3 className="mb-6 font-mono text-sm tracking-widest text-flame">
+            lang_proficiency.plot( )
+          </h3>
+          <div className="space-y-4">
+            {languages.map((lang) => (
+              <div key={lang.name}>
+                <div className="mb-1.5 flex items-baseline justify-between font-mono text-xs">
+                  <span className="text-ash">{lang.name}</span>
+                  <span className="text-ember">{lang.level}</span>
+                </div>
+                <div className="h-1.5 overflow-hidden rounded-full bg-white/5">
+                  <div
+                    className="h-full rounded-full bg-ember-gradient"
+                    style={{ width: `${(CEFR[lang.level] ?? 0.5) * 100}%` }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </Section>
   );

@@ -2,10 +2,16 @@ import { profile } from "@/lib/resume-data";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 py-8">
-      <p className="text-center text-sm text-slate-500">
-        © {profile.name} · Built with Next.js
-      </p>
+    <footer className="border-t border-ember/10 px-6 py-8">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 font-mono text-xs text-smoke">
+        <p>
+          © {profile.name} <span className="text-ember">·</span> forged in
+          Next.js
+        </p>
+        <p>
+          plt.show(<span className="text-flame">&quot;portfolio&quot;</span>)
+        </p>
+      </div>
     </footer>
   );
 }
