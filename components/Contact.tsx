@@ -20,9 +20,9 @@ export default function Contact() {
 
         <Reveal delay={120}>
           <h2 className="mt-8 font-display text-4xl font-black uppercase leading-tight text-white sm:text-6xl lg:text-7xl">
-            Let&apos;s build
+            Let&apos;s turn data
             <br />
-            <span className="text-ember-flow">something smart</span>
+            <span className="text-ember-flow">into decisions</span>
           </h2>
         </Reveal>
 
