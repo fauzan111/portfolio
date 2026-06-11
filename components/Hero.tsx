@@ -52,19 +52,17 @@ export default function Hero() {
           >
             view_projects( ) →
           </a>
-          {profile.links
-            .filter((link) => link.label !== "Website")
-            .map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border border-ember/30 px-7 py-3 font-mono text-sm text-ash transition-all duration-300 hover:border-flame hover:text-flame"
-              >
-                {link.label.toLowerCase()}
-              </a>
-            ))}
+          {profile.links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-ember/30 px-7 py-3 font-mono text-sm text-ash transition-all duration-300 hover:border-flame hover:text-flame"
+            >
+              {link.label.toLowerCase()}
+            </a>
+          ))}
         </div>
 
         <div className="scroll-hint mt-20 flex items-center gap-3 font-mono text-xs text-smoke">

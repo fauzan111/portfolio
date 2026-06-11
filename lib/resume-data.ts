@@ -54,10 +54,7 @@ export const profile: Profile = {
   location: "Napoli, Italy",
   phones: ["+39 342 1014345", "+91 9832887252"],
   email: "ejazfauzan14@gmail.com",
-  links: [
-    { label: "GitHub", href: "https://github.com/fauzan111" },
-    { label: "Website", href: "https://fauzan-ejaz.runit.in" },
-  ],
+  links: [{ label: "GitHub", href: "https://github.com/fauzan111" }],
   objective:
     "Data-driven professional with hands-on experience in data analysis, statistical modeling, and machine learning. Transformed into a Data Scientist. Skilled in Python, SQL, and predictive analytics with a strong foundation in automation and MLOps practices. Passionate about transforming complex data into actionable insights that enhance decision-making, optimize performance, and drive business growth within collaborative, innovation-focused teams.",
 };
